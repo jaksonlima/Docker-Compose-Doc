@@ -1,0 +1,21 @@
+#  Portainer Server Deployment
+# https://documentation.portainer.io/v2.0/deploy/ceinstalldocker/
+# docker volume create portainer_data
+# docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+# Create Network
+# docker network create live
+
+# DB Postgres
+# docker run -d --rm --name postgres -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e POSTGRES_DB=root postgres:alpine
+
+# App
+# docker run --rm --name node-teste -d -p 3001:3000 -v $(pwd):/app node:latest tail -f /dev/null
+# docker build -t jaksonsneider/node-express:latest .
+# docker run --rm --name node-express -p 3001:3000 -v $(pwd):/app --network live jaksonsneider/node-express
+
+#Exec Container
+# docker exec -it node-express /bin/sh
+# apk update
+# apk add bash
+# docker exec -it node-express /bin/bash
